@@ -73,6 +73,7 @@ GEM
       tzinfo (~> 2.0, >= 2.0.5)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    ansi (1.5.0)
     ast (2.4.2)
     base64 (0.2.0)
     bigdecimal (3.1.8)
@@ -130,6 +131,11 @@ GEM
     matrix (0.4.2)
     mini_mime (1.1.5)
     minitest (5.25.1)
+    minitest-reporters (1.6.0)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
     msgpack (1.7.2)
     net-imap (0.4.16)
       date
@@ -312,6 +318,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  minitest-reporters (= 1.6.0)
   puma (>= 5.0)
   rails (~> 7.2.1)
   rubocop-rails-omakase

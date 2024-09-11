@@ -37,7 +37,8 @@ gem "bootsnap", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "sassc-rails"
 gem "jquery-rails"
-
+gem "mutex_m"
+gem "rss"
 
 
 group :development, :test do

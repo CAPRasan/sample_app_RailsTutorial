@@ -5,13 +5,13 @@ class UsersLogin < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 end
-  
+
 class InvalidPasswordTest < UsersLogin
   test "login path" do
     get login_path
     assert_template "sessions/new"
   end
-  
+
   test "login with valid email/invalid password" do
     post login_path, params: { session: { email:    @user.email,
                                           password: "invalid" } }
@@ -60,10 +60,16 @@ class LogoutTest < Logout
     assert_response :see_other
     assert_redirected_to root_url
   end
+
   test "redirect after logout" do
     follow_redirect!
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path, count: 0
     assert_select "a[href=?]", user_path(@user), count: 0
+  end
+
+  test "should still work after logout in second window" do
+    delete logout_path
+    assert_redirected_to root_url
   end
 end

@@ -12,7 +12,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     patch user_path(@user), params: { user: { name: "",
                                               email: "foo@invalid",
                                               password: "doo",
-                                              password_confirmation: "voo"}}
+                                              password_confirmation: "voo" } }
     assert_template "users/edit"
     assert_select "div.alert", "The form contains 4 errors."
   end

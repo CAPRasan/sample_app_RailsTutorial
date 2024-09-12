@@ -74,19 +74,19 @@ class LogoutTest < Logout
   end
 end
 
-  class RememberingTest < UsersLogin
-    # cookieを保存してログイン
-    test "login with remembering" do
-      log_in_as(@user, remember_me: "1")
-      assert_equal cookies[:remember_token], assigns(:user).remember_token
-    end
-    # cookieを保存しないでログイン
-    test "login without remembering" do
-      log_in_as(@user, remember_me: "1")
-      delete logout_path
-      log_in_as(@user, remember_me: "0")
-      assert cookies[:remember_token].blank?
-    end
+class RememberingTest < UsersLogin
+  # cookieを保存してログイン
+  test "login with remembering" do
+    log_in_as(@user, remember_me: "1")
+    assert_equal cookies[:remember_token], assigns(:user).remember_token
+  end
+  # cookieを保存しないでログイン
+  test "login without remembering" do
+    log_in_as(@user, remember_me: "1")
+    delete logout_path
+    log_in_as(@user, remember_me: "0")
+    assert cookies[:remember_token].blank?
+  end
 end
 
 class FriendryForwardingTest < UsersLogin

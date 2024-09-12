@@ -24,7 +24,7 @@ class User < ApplicationRecord
         update_attribute(:remember_digest, User.digest(remember_token))
         remember_digest
     end
-     # セッションハイジャック防止のためにセッショントークンを返す
+    # セッションハイジャック防止のためにセッショントークンを返す
     def session_token
         remember_digest || remember
     end

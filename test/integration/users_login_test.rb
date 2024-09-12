@@ -88,3 +88,19 @@ end
       assert cookies[:remember_token].blank?
     end
 end
+
+class FriendryForwarding < UsersLogin
+  def setup
+    super
+    get edit_user_path(@user)
+    assert_redirected_to login_path
+    post login_path, params: { session: { email:    @user.email,
+                                          password: "password" } }
+    assert_redirected_to edit_user_url(@user)
+    assert_equal session[:forwarding_url] == nil
+    log_out @user
+    post login_path, params: { session: { email:    @user.email,
+                                          password: "password" } }
+    assert_redirected_to @user
+  end
+end

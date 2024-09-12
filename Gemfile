@@ -39,6 +39,9 @@ gem "sassc-rails"
 gem "jquery-rails"
 gem "mutex_m"
 gem "rss"
+gem "faker"
+gem "will_paginate",           "3.3.1"
+gem "bootstrap-will_paginate", "1.0.0"
 
 
 group :development, :test do

@@ -89,16 +89,19 @@ end
     end
 end
 
-class FriendryForwarding < UsersLogin
+class FriendryForwardingTest < UsersLogin
   def setup
     super
+  end
+
+  test "redirected once when friendry forwarding" do
     get edit_user_path(@user)
     assert_redirected_to login_path
     post login_path, params: { session: { email:    @user.email,
                                           password: "password" } }
     assert_redirected_to edit_user_url(@user)
-    assert_equal session[:forwarding_url] == nil
-    log_out @user
+    assert_nil session[:forwarding_url]
+    delete logout_path
     post login_path, params: { session: { email:    @user.email,
                                           password: "password" } }
     assert_redirected_to @user

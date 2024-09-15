@@ -80,10 +80,12 @@ class RememberingTest < UsersLogin
     log_in_as(@user, remember_me: "1")
     assert_equal cookies[:remember_token], assigns(:user).remember_token
   end
-  # cookieを保存しないでログイン
+  
   test "login without remembering" do
+    # cookieを保存してログイン
     log_in_as(@user, remember_me: "1")
     delete logout_path
+    # coolieが削除されていることを検証してからログイン
     log_in_as(@user, remember_me: "0")
     assert cookies[:remember_token].blank?
   end

@@ -67,7 +67,7 @@ class PasswordUpdateTest < PasswordResetForm
           params: { email: @reset_user.email,
                     user: { password:              "foobaz",
                             password_confirmation: "barquux" } }
-    assert_select 'div#error_explanation'
+    assert_select "div#error_explanation"
   end
 
   test "update with empty password" do
@@ -97,7 +97,7 @@ class ExpiredToken < PasswordResets
          params: { password_reset: { email: @user.email } }
     @reset_user = assigns(:user)
     @reset_user.update_attribute(:reset_sent_at, 3.hours.ago)
-    patch password_reset_path(@reset_user.reset_token), 
+    patch password_reset_path(@reset_user.reset_token),
           params: { email: @reset_user.email,
                     user: { password: "foobarbaz",
                             password_confirmation: "foobarbaz" } }
@@ -111,6 +111,6 @@ class ExpiredTokenTest < ExpiredToken
 
   test "should include the word 'expired' on the password reset page" do
     follow_redirect!
-    assert_match /expired/, response.body 
+    assert_match /expired/, response.body
   end
 end

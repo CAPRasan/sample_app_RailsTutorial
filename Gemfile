@@ -32,7 +32,7 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
+gem "image_processing", "1.12.2"
 
 gem "bootstrap-sass", "3.4.1"
 gem "sassc-rails"
@@ -42,7 +42,7 @@ gem "rss"
 gem "faker"
 gem "will_paginate",           "3.3.1"
 gem "bootstrap-will_paginate", "1.0.0"
-
+gem "active_storage_validations", "0.9.8"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -67,4 +67,8 @@ group :test do
   gem "minitest",                 "5.18.0"
   gem "minitest-reporters",       "1.6.0"
   gem "rails-controller-testing"
+end
+
+group :production do
+  gem "aws-sdk-s3", "1.114.0", require: false
 end

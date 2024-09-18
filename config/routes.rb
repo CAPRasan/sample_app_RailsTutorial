@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete "logout", to: "sessions#destroy"
 
   get "/microposts", to: "static_pages#home"
-  
+
   root "static_pages#home"
   resources :users
   resources :account_activations, only: [ :edit ]

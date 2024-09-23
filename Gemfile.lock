@@ -45,7 +45,7 @@ GEM
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
-    active_storage_validations (0.9.8)
+    active_storage_validations (1.2.0)
       activejob (>= 5.2.0)
       activemodel (>= 5.2.0)
       activestorage (>= 5.2.0)
@@ -145,7 +145,7 @@ GEM
     ffi (1.17.0-x86_64-linux-musl)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
       mini_magick (>= 4.9.5, < 5)
@@ -383,7 +383,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  active_storage_validations (= 0.9.8)
+  active_storage_validations (= 1.2.0)
   aws-sdk-s3 (= 1.114.0)
   bcrypt (~> 3.1.7)
   bootsnap

@@ -40,7 +40,7 @@ gem "jquery-rails"
 gem "mutex_m"
 gem "rss"
 gem "faker"
-gem "will_paginate",           "3.3.1"
+gem "will_paginate",           "4.0.1"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "active_storage_validations", "0.9.8"
 
